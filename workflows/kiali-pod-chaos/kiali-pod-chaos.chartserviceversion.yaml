@@ -2,30 +2,27 @@ apiVersion: litmuchaos.io/v1alpha1
 kind: ChartServiceVersion
 metadata:
   createdAt: 2021-05-24T10:28:08Z
-  name: sock-shop
+  name: kiali-pod-chaos
   version: 0.1.0
   annotations:
-    categories: sock-shop
-    chartDescription: Injects chaos on sock-shop application using cmd probe.
+    categories: kiali-pod-chaos
+    chartDescription: Injects chaos on kiali application using cmd probe.
 spec:
-  displayName: Sock-Shop-Chaos
+  displayName: Kiali-Chaos
   categoryDescription: >
-    It install sock-shop application, generate loads, inject chaos on sock-shop,
+    It generate loads, inject chaos on kiali,
     uninstall the application and revert the chaos
   experiments:
     - pod-delete
     - pod-cpu-hog
     - pod-memory-hog
-    - pod-network-loss
-    - disk-fill
   keywords:
     - Kubernetes
-    - Sock-Shop
+    - Kiali
     - Pod
     - Memory
     - CPU
     - Network
-    - Disk
   platforms:
     - GKE
     - Minikube
@@ -33,15 +30,15 @@ spec:
     - EKS
     - AKS
   maintainers:
-    - name: oumkale
-      email: oumkale@chaosnative.com
+    - name: lamc
+      email: crystal.lam@dowjones.com
   provider:
     name: ChaosNative
   links:
-    - name: Kubernetes Slack
-      url: https://slack.kubernetes.io/
+    - name: PIB Slack
+      url: aaa
     - name: Documentation
       url: https://docs.litmuschaos.io/docs/chaoshub/#generic-chaos
   icon:
-    - url: https://raw.githubusercontent.com/litmuschaos/chaos-charts/master/workflows/icons/sock-shop.png
+    - url: https://www.pngwing.com/en/free-png-zbosf
       mediatype: image/png
