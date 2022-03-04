@@ -11,7 +11,7 @@ spec:
       - name: adminModeNamespace
         value: litmus
       - name: appNamespace
-        value: djin-productivity
+        value: djin-shared
   entrypoint: nasa-blue-pod-custom-chaos
   securityContext:
     runAsNonRoot: true
@@ -536,7 +536,7 @@ spec:
                     context: "pod-delete_{{workflow.parameters.appNamespace}}"
                 spec:
                   appinfo:
-                    appns: djin-productivity
+                    appns: djin-shared
                     applabel: app=nasa-blue
                     appkind: deployment
                   engineState: active
@@ -578,7 +578,7 @@ spec:
                 spec:
                   engineState: active
                   appinfo:
-                    appns: djin-productivity
+                    appns: djin-shared
                     applabel: app=nasa-blue
                     appkind: deployment
                   chaosServiceAccount: litmus-admin
@@ -621,7 +621,7 @@ spec:
                 spec:
                   engineState: active
                   appinfo:
-                    appns: djin-productivity
+                    appns: djin-shared
                     applabel: app=nasa-blue
                     appkind: deployment
                   chaosServiceAccount: litmus-admin

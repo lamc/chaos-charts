@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: kiali-pod-chaos-workflow-
+  generateName: nasa-blue-pod-chaos-workflow-
   namespace: litmus
   labels:
-    subject: "kiali-pod-chaos_{{workflow.parameters.appNamespace}}"
+    subject: "nasa-blue-pod-chaos_{{workflow.parameters.appNamespace}}"
 spec:
   chedule: 00 10 * * 1-5
   concurrencyPolicy: Forbid
@@ -15,14 +15,14 @@ spec:
         - name: adminModeNamespace
           value: litmus
         - name: appNamespace
-          value: djin-productivity
-    entrypoint: kiali-pod-custom-chaos
+          value: djin-shared
+    entrypoint: nasa-blue-pod-custom-chaos
     securityContext:
       runAsNonRoot: true
       runAsUser: 1000
     serviceAccountName: argo-chaos
     templates:
-      - name: kiali-pod-custom-chaos
+      - name: nasa-blue-pod-custom-chaos
         steps:
           - - name: install-chaos-experiments
               template: install-chaos-experiments
@@ -535,13 +535,13 @@ spec:
                   kind: ChaosEngine
                   metadata:
                     namespace: "{{workflow.parameters.adminModeNamespace}}"
-                    name: kiali-pod-delete
+                    name: nasa-blue-pod-delete
                     labels:
                       context: "pod-delete_{{workflow.parameters.appNamespace}}"
                   spec:
                     appinfo:
-                      appns: djin-productivity
-                      applabel: app=kiali
+                      appns: djin-shared
+                      applabel: app=nasa-blue
                       appkind: deployment
                     engineState: active
                     chaosServiceAccount: litmus-admin
@@ -576,14 +576,14 @@ spec:
                   kind: ChaosEngine
                   metadata:
                     namespace: "{{workflow.parameters.adminModeNamespace}}"
-                    name: kiali-pod-network-loss
+                    name: nasa-blue-pod-network-loss
                     labels:
                       context: "pod-network-loss_{{workflow.parameters.appNamespace}}"
                   spec:
                     engineState: active
                     appinfo:
-                      appns: djin-productivity
-                      applabel: app=kiali
+                      appns: djin-shared
+                      applabel: app=nasa-blue
                       appkind: deployment
                     chaosServiceAccount: litmus-admin
                     experiments:
@@ -619,14 +619,14 @@ spec:
                   kind: ChaosEngine
                   metadata:
                     namespace: "{{workflow.parameters.adminModeNamespace}}"
-                    name: kiali-pod-memory-hog
+                    name: nasa-blue-pod-memory-hog
                     labels:
                       context: "pod-memory-hog_{{workflow.parameters.appNamespace}}"
                   spec:
                     engineState: active
                     appinfo:
-                      appns: djin-productivity
-                      applabel: app=kiali
+                      appns: djin-shared
+                      applabel: app=nasa-blue
                       appkind: deployment
                     chaosServiceAccount: litmus-admin
                     experiments:
@@ -657,5 +657,5 @@ spec:
           command: [sh, -c]
           args:
             [
-              "kubectl delete chaosengine kiali-pod-delete kiali-pod-network-loss kiali-pod-memory-hog -n {{workflow.parameters.adminModeNamespace}}",
+              "kubectl delete chaosengine nasa-blue-pod-delete nasa-blue-pod-network-loss nasa-blue-pod-memory-hog -n {{workflow.parameters.adminModeNamespace}}",
             ]
