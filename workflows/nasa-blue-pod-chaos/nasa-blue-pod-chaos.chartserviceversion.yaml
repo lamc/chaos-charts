@@ -8,17 +8,16 @@ metadata:
     categories: kiali-pod-chaos
     chartDescription: Injects chaos on kiali application using cmd probe.
 spec:
-  displayName: Kiali-Chaos
+  displayName: Nasa-Blue-Chaos
   categoryDescription: >
-    It generate loads, inject chaos on kiali,
-    uninstall the application and revert the chaos
+    It generate loads, inject chaos on nasa-blue, uninstall the application and revert the chaos
   experiments:
     - pod-delete
     - pod-cpu-hog
     - pod-memory-hog
   keywords:
     - Kubernetes
-    - Kiali
+    - Nasa-blue
     - Pod
     - Memory
     - CPU
@@ -40,5 +39,5 @@ spec:
     - name: Documentation
       url: https://docs.litmuschaos.io/docs/chaoshub/#generic-chaos
   icon:
-    - url: 
+    - url:
       mediatype: image/png
