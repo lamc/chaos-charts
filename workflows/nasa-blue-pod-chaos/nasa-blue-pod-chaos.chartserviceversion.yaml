@@ -40,5 +40,5 @@ spec:
     - name: Documentation
       url: https://docs.litmuschaos.io/docs/chaoshub/#generic-chaos
   icon:
-    - url: https://www.pngwing.com/en/free-png-zbosf
+    - url: 
       mediatype: image/png
