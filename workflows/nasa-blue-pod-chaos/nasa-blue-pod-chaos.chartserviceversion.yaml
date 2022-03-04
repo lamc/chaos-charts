@@ -2,11 +2,11 @@ apiVersion: litmuchaos.io/v1alpha1
 kind: ChartServiceVersion
 metadata:
   createdAt: 2021-05-24T10:28:08Z
-  name: kiali-pod-chaos
+  name: nasa-blue-pod-chaos
   version: 0.1.0
   annotations:
-    categories: kiali-pod-chaos
-    chartDescription: Injects chaos on kiali application using cmd probe.
+    categories: nasa-blue-pod-chaos
+    chartDescription: Injects chaos on nasa-blue application using cmd probe.
 spec:
   displayName: Nasa-Blue-Chaos
   categoryDescription: >
