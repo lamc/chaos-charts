@@ -6,7 +6,7 @@ metadata:
   labels:
     subject: "kiali-pod-chaos_{{workflow.parameters.appNamespace}}"
 spec:
-  chedule: 00 10 * * 1-5
+  schedule: 00 10 * * 1-5
   concurrencyPolicy: Forbid
   startingDeadlineSeconds: 0
   workflowSpec:
